@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="99px" height="21px" viewBox="0 0 99 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>matrix</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M0,10.5 C0,4.70101013 4.69973509,0 10.5,0 L10.5,0 C16.2989899,0 21,4.69973509 21,10.5 L21,10.5 C21,16.2989899 16.3002649,21 10.5,21 L2.40896702,21 C1.07853127,21 0,19.929736 0,18.591033 L0,10.5 Z" id="path-1"></path>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="21" height="21" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="App" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Matrix-01" transform="translate(-42.000000, -40.000000)">
+            <g id="matrix" transform="translate(42.000000, 38.000000)">
+                <text font-family="Archer-Bold, Archer" font-size="24" font-weight="bold" fill="#51AE45">
+                    <tspan x="27" y="19">matrix</tspan>
+                </text>
+                <g id="Group-3" transform="translate(0.000000, 2.000000)">
+                    <use id="Rectangle-32" stroke-opacity="0.2" stroke="#4D3017" mask="url(#mask-2)" stroke-width="1.91999991" fill="#51AE45" transform="translate(10.500000, 10.500000) rotate(-180.000000) translate(-10.500000, -10.500000) " xlink:href="#path-1"></use>
+                    <circle id="Oval-2" fill="#FFFFFF" cx="8" cy="7" r="1"></circle>
+                    <circle id="Oval-2" fill="#FFFFFF" cx="8" cy="10" r="1"></circle>
+                    <circle id="Oval-2" fill="#FFFFFF" cx="11" cy="7" r="1"></circle>
+                    <circle id="Oval-2" fill="#FFFFFF" cx="11" cy="10" r="1"></circle>
+                    <circle id="Oval-2" fill="#FFFFFF" cx="14" cy="7" r="1"></circle>
+                    <circle id="Oval-2" fill="#FFFFFF" cx="14" cy="10" r="1"></circle>
+                    <circle id="Oval-2" fill="#FFFFFF" cx="8" cy="13" r="1"></circle>
+                    <circle id="Oval-2" fill="#FFFFFF" cx="11" cy="13" r="1"></circle>
+                    <circle id="Oval-2" fill="#FFFFFF" cx="14" cy="13" r="1"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
