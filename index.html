@@ -1,0 +1,447 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Freshdesk - Meetings Rooms</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="semantic.min.css">
+
+        <script src="js/jquery.js"></script>
+        <script src="semantic.min.js"></script>
+        <script src="js/main.js"></script>
+    </head>
+    <body>
+
+
+
+      <div id="map">
+
+        <div id="mapcontainer">
+
+          <div id="background"></div>
+
+          <div id="base1" class="base" style="width: 800px; height: 1350px; left: -800px; top: -300px; border-radius: 10px"></div>
+          <div id="base2" class="base" style="width: 280px; height: 600px; top: -200px; border-radius: 0 10px 0 0;"></div>
+          <div id="base3" class="base" style="width: 1120px; height: 820px; left: 280px; top: -60px; border-radius: 0 10px 10px 10px;"></div>
+
+          <div class="block-name" style="left: 320px; top: 620px;">Block <strong>B</strong></div>
+          <div class="block-name" style="left: -180px; top: 620px;">Block <strong>C</strong></div>
+
+          <div id="origin"></div>
+          <div id="endoftheworld"></div>
+
+          <div class="road horizontal fh1">fh1</div>
+          <div class="road horizontal fh3a">fh3a</div>
+          <div class="road horizontal fh3b">fh3b</div>
+          <div class="road horizontal fh5">fh5</div>
+          <div class="road horizontal fh7">fh7</div>
+
+          <div class="road horizontal" style="width: 255px; left: -460px; top: -70px;">fhc99</div>
+          <div class="road horizontal" style="width: 150px; left: -610px; top: 40px;">fhc1</div>
+          <div class="road horizontal" style="width: 120px; left: -730px; top: 75px;">fhc3</div>
+          <div class="road horizontal" style="width: 150px; left: -610px; top: 190px;">fhc5</div>
+          <div class="road horizontal" style="width: 300px; left: -610px; top: 385px;">fhc7</div>
+          <div class="road horizontal" style="width: 200px; left: -305px; top: 415px;">fhc9</div>
+          <div class="road horizontal" style="width: 400px; left: -710px; top: 700px;">fhc11</div>
+
+          <div class="road vertical fh0">fh0</div>
+          <div class="road vertical fh2">fh2</div>
+          <div class="road vertical fh4">fh4</div>
+          <div class="road vertical fh6">fh6</div>
+          <div class="road vertical fh8">fh8</div>
+          <div class="road vertical fh10">fh10</div>
+
+          <div class="road vertical" style="height: 240px; left: 130px; top: 15px;">fh12</div>
+          <div class="road vertical" style="height: 160px; left: -120px; top: 280px;">fh14</div>
+          <div class="road vertical" style="height: 670px; left: -330px; top: 280px;">fh16</div>
+          <div class="road vertical" style="height: 1020px; left: -480px; top: -100px;">fh18</div>
+          <div class="road vertical" style="height: 330px; left: -580px; top: 620px;">fh20</div>
+          <div class="road vertical" style="height: 550px; left: -630px; top: 40px;">fh22</div>
+
+          <div class="curved-road cr1"></div>
+          <div class="curved-road cr2"></div>
+          <div class="curved-road cr3"></div>
+          <div class="curved-road cr4"></div>
+
+          <!-- - - - - - RED - - - - - -->
+            <!-- MySQL -->
+            <div id="mysql" class="room color1 active" style="left: 270px; top: 40px;">
+              <div class="abbr">M</div>
+              <div class="name bottom-slant">MySQL</div>
+            </div>
+
+            <!-- Scala -->
+            <div id="scala" class="room color1" style="left: 320px; top: 40px;">
+              <div class="abbr">S</div>
+              <div class="name bottom-slant">Scala</div>
+            </div>
+
+            <!-- Erlang -->
+            <div id="erlang" class="room color1" style="left: 370px; top: 40px;">
+              <div class="abbr">E</div>
+              <div class="name bottom-slant">Erlang</div>
+            </div>
+
+            <!-- Node.JS -->
+            <div id="nodejs" class="room color1" style="left: 420px; top: 40px;">
+              <div class="abbr">N</div>
+              <div class="name bottom-slant">Node.JS</div>
+            </div>
+
+            <div id="winterfell" class="winterfell color1 big-room" style="left: 630px; top: 20px;">
+              <div class="abbr">P</div>
+              <div class="name bottom-slant">Python</div>
+            </div>
+            <div id="hardhome" class="hardhome color1 big-room" style="left: 697px; top: 20px;">
+              <div class="abbr">J</div>
+              <div class="name bottom-slant">Java</div>
+            </div>
+            <div id="pandora" class="pandora color1 big-room" style="left: 890px; top: 20px;">
+              <div class="abbr">R</div>
+              <div class="name bottom-center">Ruby</div>
+            </div>
+
+          <!-- - - - - - PINK - - - - - -->
+            <!-- Yang -->
+            <div id="yang" class="room color2" style="left: 430px; top: 345px;">
+              <div class="abbr">Y</div>
+              <div class="name name-left">Yang</div>
+            </div>
+
+            <!-- Yin -->
+            <div id="yin" class="room color2" style="left: 430px; top: 395px;">
+              <div class="abbr">Y</div>
+              <div class="name name-left">Yin</div>
+            </div>
+
+          <!-- - - - - - ORANGE - - - - - -->
+            <!-- Verdana -->
+            <div id="verdana" class="room color3" style="left: 710px; top: 530px;">
+              <div class="abbr">V</div>
+              <div class="name name-left">Verdana</div>
+            </div>
+
+            <!-- Comic Sans -->
+            <div id="comicsans" class="room color3" style="left: 710px; top: 580px;">
+              <div class="abbr">C</div>
+              <div class="name name-left">Comic Sans</div>
+            </div>
+
+            <!-- Calibri -->
+            <div id="calibri" class="room color3" style="left: 710px; top: 630px;">
+              <div class="abbr">C</div>
+              <div class="name name-left">Calibri</div>
+            </div>
+
+            <!-- Helvetica -->
+            <div id="helvetica" class="room color3" style="left: 710px; top: 680px;">
+              <div class="abbr">H</div>
+              <div class="name name-left">Helvetica</div>
+            </div>
+
+            <!-- GOTHAM CITY
+            <div id="gothamcity" class="room purple" style="left: 760px; top: 530px;">
+              <div class="abbr">G</div>
+              <div class="name right">Gotham City</div>
+            </div> -->
+
+          <!-- BLACK -->
+            <!-- Rock -->
+            <div id="rock" class="room color4" style="left: 910px; top: 125px; transform: rotate(45deg);">
+              <div class="abbr abbr2">R</div>
+              <div class="name top-right">Rock</div>
+            </div>
+
+            <!-- ATM -->
+            <div id="atm" class="grey atm" style="left: 875px; top: 160px; transform: rotate(45deg);">
+              <div class="abbr abbr2">ATM</div>
+            </div>
+
+            <!-- Jazz -->
+            <div id="jazz" class="room color4" style="left: 910px; top: 195px; transform: rotate(45deg);">
+              <div class="abbr abbr2">J</div>
+              <div class="name top-right">Jazz</div>
+            </div>
+
+            <!-- Pop -->
+            <div id="pop" class="room color4" style="left: 920px; top: 253px; transform: rotate(45deg);">
+              <div class="abbr abbr2">P</div>
+              <div class="name top-right">Pop</div>
+            </div>
+
+          <!-- PURPLE -->
+            <!-- Harry Potter -->
+            <div id="harrypotter" class="room color5" style="left: 1185px; top: 345px;">
+              <div class="abbr">H</div>
+              <div class="name name-left">Harry Potter</div>
+            </div>
+
+            <!-- Lord of the Rings -->
+            <div id="lordoftherings" class="room color5" style="left: 1185px; top: 395px;">
+              <div class="abbr">L</div>
+              <div class="name name-left">Lord of the Rings</div>
+            </div>
+
+            <!-- The Dark Knight -->
+            <div id="thedarkknight" class="room color5" style="left: 1185px; top: 445px;">
+              <div class="abbr">D</div>
+              <div class="name name-left">The Dark Knight</div>
+            </div>
+
+            <!-- Matrix -->
+            <div id="hogwarts" class="hogwarts color5 big-room" style="left: 1210px; top: 285px;">
+              <div class="abbr">M</div>
+              <div class="name name-left">Matrix</div>
+            </div>
+
+          <!-- GREEN -->
+            <!-- Alan Turing -->
+            <div id="alanturing" class="room color6" style="left: -310px; top: 205px;">
+              <div class="abbr">A</div>
+              <div class="name bottom-slant">Alan Turing</div>
+            </div>
+            <!-- Charles Babbage -->
+            <div id="charlesbabbage" class="room color6" style="left: -360px; top: 205px;">
+              <div class="abbr">C</div>
+              <div class="name bottom-slant">Charles Babbage</div>
+            </div>
+            <!-- Larry Page -->
+            <div id="larrypage" class="room color6" style="left: -410px; top: 205px;">
+              <div class="abbr">L</div>
+              <div class="name bottom-slant">Larry Page</div>
+            </div>
+
+            <!-- Steve Jobs -->
+            <div id="stevejobs" class="room color6" style="left: -260px; top: 445px;">
+              <div class="abbr">S</div>
+              <div class="name top-slant">Steve Jobs</div>
+            </div>
+            <!-- Bill Gates -->
+            <div id="billgates" class="room color6" style="left: -210px; top: 445px;">
+              <div class="abbr">B</div>
+              <div class="name top-slant">Bill Gates</div>
+            </div>
+            <!-- CV Raman -->
+            <div id="cvraman" class="room color6" style="left: -160px; top: 445px;">
+              <div class="abbr">C</div>
+              <div class="name top-slant">CV Raman</div>
+            </div>
+            <!-- Ramanujam -->
+            <div id="ramanujam" class="room color6" style="left: -110px; top: 445px;">
+              <div class="abbr">R</div>
+              <div class="name top-slant">Ramanujam</div>
+            </div>
+
+          <!-- YELLOW -->
+            <!-- Lighthouse -->
+            <div id="lighthouse" class="room color7" style="left: -780px; top: 55px;">
+              <div class="abbr">L</div>
+              <div class="name name-right">Lighthouse</div>
+            </div>
+            <!-- Napier Bridge -->
+            <div id="napierbridge" class="room color7" style="left: -680px; top: 105px;">
+              <div class="abbr">N</div>
+              <div class="name name-right">Napier Bridge</div>
+            </div>
+            <!-- Rippon Building -->
+            <div id="ripponbuilding" class="room color7" style="left: -680px; top: 155px;">
+              <div class="abbr">R</div>
+              <div class="name name-right">Rippon Building</div>
+            </div>
+            <!-- COO's Office
+            <div id="coosoffice" class="room color7" style="left: -680px; top: 205px;">
+              <div class="abbr">C</div>
+              <div class="name right">COO's Office</div>
+            </div> -->
+
+            <!-- Valluvar Kottam -->
+            <div id="valluvarkottam" class="room color7" style="left: -680px; top: 320px;">
+              <div class="abbr">V</div>
+              <div class="name name-right">Valluvar Kottam</div>
+            </div>
+            <!-- Theosophical Society -->
+            <div id="theosophicalsociety" class="room color7" style="left: -680px; top: 370px;">
+              <div class="abbr">T</div>
+              <div class="name name-right">Theosophical Society</div>
+            </div>
+            <!-- Kapaleeshwar Temple -->
+            <div id="kapaleeshwartemple" class="room rtype1 color7" style="left: -680px; top: 420px;">
+              <div class="abbr">K</div>
+              <div class="name name-right">Kapaleeshwar Temple</div>
+            </div>
+
+            <!-- Elliot's Beach -->
+            <div id="elliotsbeach" class="room color7" style="left: -680px; top: 535px;">
+              <div class="abbr">E</div>
+              <div class="name name-right">Elliot's Beach</div>
+            </div>
+            <!-- Fort St.George -->
+            <div id="fortstgeorge" class="room color7" style="left: -680px; top: 585px;">
+              <div class="abbr">F</div>
+              <div class="name name-right">Fort St.George</div>
+            </div>
+            <!-- Chennai Central -->
+            <div id="chennaicentral" class="room color7" style="left: -680px; top: 635px;">
+              <div class="abbr">C</div>
+              <div class="name name-right">Chennai Central</div>
+            </div>
+            <!-- Marina Beach -->
+            <div id="marinabeach" class="room color7" style="left: -730px; top: 635px;">
+              <div class="abbr">M</div>
+              <div class="name name-left">Marina Beach</div>
+            </div>
+            <!-- Spencer Plaza -->
+            <div id="spencerplaza" class="room color7" style="left: -730px; top: 745px;">
+              <div class="abbr">S</div>
+              <div class="name name-right">Spencer Plaza</div>
+            </div>
+
+          <!-- BLUE -->
+            <!-- Big Bang Theory -->
+            <div id="bigbangtheory" class="room color8" style="left: -550px; top: 940px;">
+              <div class="abbr">B</div>
+              <div class="name name-left">Big Bang Theory</div>
+            </div>
+            <!-- Keezhkattalai -->
+            <div id="keezhkattalai" class="room color8" style="left: -550px; top: 990px;">
+              <div class="abbr">K</div>
+              <div class="name name-left">Keezhkattalai</div>
+            </div>
+
+            <div id="gameofthrones" class="gameofthrones color8 big-room" style="left: -500px; top: 925px;">
+              <div class="abbr">G</div>
+              <div class="name top-slant">Game of Thrones</div>
+            </div>
+            <div id="houseofcards" class="houseofcards color8 big-room" style="left: -441px; top: 925px;">
+              <div class="abbr">H</div>
+              <div class="name top-slant">House of Cards</div>
+            </div>
+
+            <!-- South Park -->
+            <div id="southpark" class="room color8" style="left: -380px; top: 940px;">
+              <div class="abbr">S</div>
+              <div class="name name-right">South Park</div>
+            </div>
+            <!-- Breaking Bad -->
+            <div id="breakingbad" class="room color8" style="left: -380px; top: 990px;">
+              <div class="abbr">B</div>
+            <!--
+              <div class="abbr8">Br</div>
+              <div class="abbr9">Ba</div>
+            -->
+              <div class="name name-right">Breaking Bad</div>
+            </div>
+
+
+            <div class="grey cafeteria" style="left: -780px; top: -275px;">
+              <div><img src="img/cafeteria.svg" /></div>
+              <div class="name">Cafeteria</div>
+            </div>
+
+            <div class="grey centralperk" style="left: -200px; top: -160px;">
+              <div><img src="img/centralperk.svg" /></div>
+              <div class="name">Central Perk</div>
+            </div>
+
+            <div class="grey pong" style="left: 20px; top: 20px;">
+              <div><img src="img/pong.svg" /></div>
+              <div class="name">Pong</div>
+            </div>
+            <div class="grey foosball" style="left: 160px; top: 20px;">
+              <div><img src="img/foosball.svg" /></div>
+              <div class="name">Foosball</div>
+            </div>
+
+            <div class="grey golf" style="left: 20px; top: 130px;">
+              <div><img src="img/golf.svg" /></div>
+              <div class="name">Golf&nbsp;&nbsp;&nbsp;</div>
+            </div>
+            <div class="grey gym" style="left: -20px; top: 285px;">
+              <div><img src="img/gym.svg" /></div>
+              <div class="name">Gym</div>
+            </div>
+
+            <div class="grey reception" style="left: 770px; top: 20px;">
+              <div><img src="img/reception.svg" /></div>
+              <div class="name">Reception</div>
+            </div>
+
+            <div class="grey cauldron" style="left: 1265px; top: 20px;">
+              <div><img src="img/cauldron.svg" /></div>
+              <div class="name">Leaky Cauldron</div>
+            </div>
+
+            <div class="grey naproom" style="left: 1305px; top: 640px;">
+              <div><img src="img/nap.svg" /></div>
+              <div class="name">Nap Room</div>
+            </div>
+
+
+            <div class="grey reception" style="left: -780px; top: -20px;">
+              <div><img src="img/reception.svg" /></div>
+              <div class="name">Reception</div>
+            </div>
+            <div class="grey amphitheater" style="left: -600px; top: -80px;">
+              <div><img src="img/amphitheater.svg" /></div>
+              <div class="name">Amphitheater</div>
+            </div>
+            <div class="grey sports" style="left: -680px; top: -100px;">
+              <div><img src="img/sports.svg" /></div>
+              <div class="name">Sports</div>
+            </div>
+        </div>
+
+      </div>
+
+      <div id="widget">
+
+        <div id="header">
+<!--           <div id="sign-out" class="ui icon" data-tooltip="Sign out" data-inverted="" data-position="bottom right">
+            <i class="sign out icon"></i>
+          </div> -->
+          <img src="img/matrix.svg" />
+        </div>
+
+        <div id="searchbox">
+          <div class="ui fluid search">
+            <div class="ui large fluid transparent icon input">
+              <input class="prompt" type="text" placeholder="Find meeting rooms..." style="border-radius: 0px;">
+              <i class="search icon"></i>
+            </div>
+            <div class="results"></div>
+          </div>
+        </div>
+
+        <div class="subheader">Your Meetings Today</div>
+        <div class="meeting">
+          <div class="meeting-room color7" name="kapaleeshwartemple">Kapaleeshwar Temple</div>
+          <div class="meeting-name">Phone Discussion</div>
+          <div class="meeting-time">2:45pm - 3:30pm</div>
+        </div>
+        <div class="meeting">
+          <div class="meeting-room color1" name="pandora">Ruby</div>
+          <div class="meeting-name">Sprint Planning - Marvel</div>
+          <div class="meeting-time">5pm - 6pm</div>
+        </div>
+
+        <div id="selected-room">
+          <span class="room-name">
+            
+          </span>
+          <span class="room-seats">
+
+          </span>
+          <div id="close-room">
+            <i class="close floated right icon"></i>
+          </div>
+        </div>
+      </div>
+    </body>
+</html>
