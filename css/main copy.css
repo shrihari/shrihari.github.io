@@ -59,7 +59,7 @@ body {
 
 #background {
 	position: absolute;
-	background: #CFD8E6;
+	background: #DADFE6;
 	width: 2320px; 
 	height: 1450px; 
 	left: -850px; 
@@ -67,7 +67,7 @@ body {
 }
 .base {
 	position: absolute;
-	background: #E2F3DA;
+	background: #EAF2E6;
 }
 .block-name {
 	color: #B9BFB6;
@@ -84,14 +84,6 @@ body {
 	height: 45px;
 	border-radius: 6px;
 }
-.tv {
-	width: 13px; height: 10px;
-	background: transparent url(../img/tv.svg) no-repeat;
-	position: absolute;
-	right: 6px;
-	bottom: 4px;
-	opacity: 0.8;
-}
 
 .color1 {
 	background: #CC4352;
@@ -104,16 +96,16 @@ body {
 }
 
 .color2 {
-	background: #00A1CB;
+	background: #E493DC;
 }
 .color2:hover {
-	background: #008FB3;
+	background: #CA83C4;
 }
 .color2:hover .name {
-	color: #008FB3;
+	color: #CA83C4;
 }
 
-/*.color3 {
+.color3 {
 	background: #F39130;
 }
 .color3:hover {
@@ -141,7 +133,7 @@ body {
 }
 .color5:hover .name, .color5:hover .name {
 	color: #765699;
-}*/
+}
 
 .color6 {
 	background: #51AE45;
@@ -154,13 +146,13 @@ body {
 }
 
 .color7 {
-	background: #FFA900;
+	background: #F3CA00;
 }
 .color7:hover {
-	background: #E69900;
+	background: #D9B500;
 }
 .color7:hover .name {
-	color: #E69900;
+	color: #D9B500;
 }
 
 .color8 {
@@ -374,20 +366,20 @@ body {
 	margin-top: 17px;
 }
 
-.sun {
+.pandora {
 	position: absolute;
 	cursor: pointer;
 	width: 110px;
 	height: 65px;
 	border-radius: 6px;
 }
-.sun .bottom-center {
+.pandora .bottom-center {
 	top: 70px;
 	left: 0px;
 	width: 110px;
 	text-align: center;
 }
-.sun .abbr {
+.pandora .abbr {
 	color: #FFF;
 	font-size: 26px;
 	text-align: center;
@@ -395,6 +387,26 @@ body {
 	margin-top: 17px;
 }
 
+.hogwarts {
+	position: absolute;
+	cursor: pointer;
+	width: 90px;
+	height: 55px;
+	border-radius: 6px;
+}
+.hogwarts .name-left {
+	top: 20px;
+	left: -115px;
+	width: 110px;
+	text-align: right;
+}
+.hogwarts .abbr {
+	color: #FFF;
+	font-size: 26px;
+	text-align: center;
+	width: 90px;
+	margin-top: 12px;
+}
 
 .rtype1 { height: 65px; }
 .rtype1 .abbr { margin-top: 15px; }
@@ -442,32 +454,6 @@ body {
 	text-align: center;
 	width: 100%;
 }
-
-
-.matrix {
-	width: 105px;
-	height: 260px;
-	padding-top: 100px;
-}
-.matrix {
-	position: absolute;
-	cursor: pointer;
-	border-radius: 6px;
-}
-.matrix .name-left {
-	top: 120px;
-	left: -120px;
-	width: 110px;
-	text-align: right;
-}
-.matrix .abbr {
-	color: #FFF;
-	font-size: 26px;
-	text-align: center;
-	width: 110px;
-	margin-top: 12px;
-}
-
 .atm {
 	position: absolute;
 	cursor: pointer;
@@ -519,24 +505,10 @@ body {
 	height: 85px;
 	padding-top: 25px;
 }
-.naproom2 {
-	width: 105px;
-	height: 65px;
-	padding-top: 18px;
-}
 .amphitheater {
 	width: 110px;
 	height: 110px;
-	padding-top: 26px;	
-	position: absolute;	
-	border-radius: 6px;
-	text-align: center;
-	cursor: pointer;
-}
-.amphitheater .name {
-	color: #FFF!important;
-	width: 100%;
-	text-align: center;
+	padding-top: 26px;
 }
 .sports {
 	width: 75px;
@@ -561,7 +533,7 @@ body {
 	background: #FFF;
 	border: 1px solid rgba(0,0,0,0.15);
 	position: fixed;
-	width: 400px;
+	width: 320px;
 	/*height: 90px;*/
 	right: 20px;
 	top: 20px;
@@ -570,14 +542,13 @@ body {
     box-shadow: 0 2px 4px rgba(0,0,0,0.2), 0 -1px 0px rgba(0,0,0,0.02);
 }
 #header {
-	height: 50px;
-	padding: 12px;
+	height: 40px;
+	padding: 9px 12px;
 	background: #F2F2F2;
 	border-radius: 4px 4px 0 0;
 }
 #searchbox {
-	height: 50px;
-	padding: 14px 12px;
+	padding: 12px;
 }
 #selected-room {
 	color: #FFF;
@@ -585,9 +556,9 @@ body {
 	border-radius: 4px;
 	margin: 7px;
 	padding: 8px 12px;
-	width: 384px;
+	width: 304px;
 	position: absolute;
-	top: 50px;
+	top: 38px;
 	overflow: hidden;
 }
 .room-name {  }

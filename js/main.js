@@ -2,171 +2,179 @@ var states = {};
 
 var content = [
   { 
-  	title: 'MySQL',
+  	title: 'Mercury',
   	color: 1,
   	seats: '5',
-  	id: 'mysql',
+  	id: 'mercury',
   },
   { 
-  	title: 'Scala',
+  	title: 'Venus',
   	color: 1,
   	seats: '5',
-  	id: 'scala',
+  	id: 'venus',
   },
   { 
-  	title: 'Erlang',
-  	color: 1,
-  	seats: '4',
-  	id: 'erlang',
-  },
-  { 
-  	title: 'Node.JS',
+  	title: 'Earth',
   	color: 1,
   	seats: '5',
-  	id: 'nodejs',
+  	id: 'earth',
   },
   { 
-  	title: 'Python',
+  	title: 'Mars',
   	color: 1,
   	seats: '5',
+  	id: 'mars',
+  },
+  { 
+  	title: 'Jupiter',
+  	color: 1,
+  	seats: '12',
+    tv: 1,
   	id: 'winterfell',
   },
   { 
-  	title: 'Java',
+  	title: 'Saturn',
   	color: 1,
-  	seats: '5',
+  	seats: '12',
+    tv: 1,
   	id: 'hardhome',
   },
   { 
-  	title: 'Ruby',
+  	title: 'Sun',
   	color: 1,
   	seats: '22',
-  	id: 'pandora',
+    tv: 1,
+  	id: 'sun',
   },
 
+
+
+
   { 
-  	title: 'Yin',
+  	title: 'Krypton',
+  	color: 2,
+  	seats: '4',
+  	id: 'krypton',
+  },
+  { 
+  	title: 'Asgard',
+  	color: 2,
+  	seats: '4',
+  	id: 'asgard',
+  },
+  { 
+  	title: 'Vulcan',
   	color: 2,
   	seats: '3',
-  	id: 'yin',
+  	id: 'vulcan',
   },
   { 
-  	title: 'Yang',
+  	title: 'Cybertron',
   	color: 2,
-  	seats: '3',
-  	id: 'yang',
+  	seats: '4',
+  	id: 'cybertron',
   },
 
   { 
-  	title: 'Verdana',
-  	color: 3,
+  	title: 'Neptune',
+  	color: 1,
   	seats: '4',
-  	id: 'verdana',
+  	id: 'neptune',
   },
   { 
-  	title: 'Comic Sans',
-  	color: 3,
-  	seats: '5',
-  	id: 'comicsans',
-  },
-  { 
-  	title: 'Calibri',
-  	color: 3,
-  	seats: '3',
-  	id: 'calibri',
-  },
-  { 
-  	title: 'Helvetica',
-  	color: 3,
+  	title: 'Uranus',
+  	color: 1,
   	seats: '4',
-  	id: 'helvetica',
+  	id: 'uranus',
+  },
+  { 
+  	title: 'Pluto',
+  	color: 1,
+  	seats: '4',
+  	id: 'pluto',
   },
 
   { 
-  	title: 'Rock',
-  	color: 4,
-  	seats: '4',
-  	id: 'rock',
+    title: 'Planet X',
+    color: 2,
+    seats: '4',
+    id: 'planetx',
   },
   { 
-  	title: 'Pop',
-  	color: 4,
-  	seats: '4',
-  	id: 'pop',
+    title: 'Miller\'s Planet',
+    color: 2,
+    seats: '4',
+    id: 'millers',
   },
+  
   { 
-  	title: 'Jazz',
-  	color: 4,
-  	seats: '5',
-  	id: 'jazz',
-  },
-
-  { 
-  	title: 'Matrix',
-  	color: 5,
-  	seats: '5',
-  	id: 'hogwarts',
-  },
-  { 
-  	title: 'Harry Potter',
-  	color: 5,
-  	seats: '4',
-  	id: 'harrypotter',
-  },
-  { 
-  	title: 'Lord of the Rings',
-  	color: 5,
-  	seats: '4',
-  	id: 'lordoftherings',
-  },
-  { 
-  	title: 'The Dark Knight',
-  	color: 5,
-  	seats: '5',
-  	id: 'thedarkknight',
+  	title: 'Andromeda',
+  	color: 2,
+  	seats: '25',
+    tv: 1,
+  	id: 'matrix',
   },
 
   { 
-  	title: 'Alan Turing',
+    title: 'Tatooine',
+    color: 2,
+    seats: '5',
+    id: 'tatooine',
+  },
+  { 
+    title: 'Naboo',
+    color: 2,
+    seats: '5',
+    id: 'naboo',
+  },
+  { 
+  	title: 'Jakku',
+  	color: 2,
+  	seats: '5',
+  	id: 'jakku',
+  },
+
+  { 
+  	title: 'GST Road',
   	color: 6,
   	seats: '5',
-  	id: 'alanturing',
+  	id: 'gstroad',
   },
   { 
-  	title: 'Larry Page',
+  	title: 'OMR',
   	color: 6,
   	seats: '5',
-  	id: 'larrypage',
+  	id: 'omr',
   },
   { 
-  	title: 'Charles Babbage',
-  	color: 6,
-  	seats: '6',
-  	id: 'charlesbabbage',
-  },
-  { 
-  	title: 'Steve Jobs',
+  	title: 'ECR',
   	color: 6,
   	seats: '5',
-  	id: 'stevejobs',
+  	id: 'ecr',
   },
   { 
-  	title: 'Bill Gates',
-  	color: 6,
-  	seats: '5',
-  	id: 'billgates',
-  },
-  { 
-  	title: 'CV Raman',
+  	title: 'Mount Road',
   	color: 6,
   	seats: '4',
-  	id: 'cvraman',
+  	id: 'mountroad',
   },
   { 
-  	title: 'Ramanujam',
+  	title: 'Greame\'s Road',
   	color: 6,
   	seats: '4',
-  	id: 'ramanujam',
+  	id: 'greamesroad',
+  },
+  { 
+  	title: 'TTK Road',
+  	color: 6,
+  	seats: '4',
+  	id: 'ttkroad',
+  },
+  { 
+    title: 'Cathedral Road',
+    color: 6,
+    seats: '4',
+    id: 'cathedralroad',
   },
 
   { 
@@ -180,12 +188,6 @@ var content = [
   	color: 7,
   	seats: '4',
   	id: 'napierbridge',
-  },
-  { 
-  	title: 'Rippon Building',
-  	color: 7,
-  	seats: '4',
-  	id: 'ripponbuilding',
   },
   { 
   	title: 'Valluvar Kottam',
@@ -203,13 +205,14 @@ var content = [
   	title: 'Kapaleeshwar Temple',
   	color: 7,
   	seats: '10',
+    tv: 1,
   	id: 'kapaleeshwartemple',
   },
   { 
-  	title: 'Elliot\'s Beach',
-  	color: 7,
-  	seats: '5',
-  	id: 'elliotsbeach',
+    title: 'Rippon Building',
+    color: 7,
+    seats: '4',
+    id: 'ripponbuilding',
   },
   { 
   	title: 'Fort St. George',
@@ -224,10 +227,10 @@ var content = [
   	id: 'chennaicentral',
   },
   { 
-  	title: 'Marina Beach',
+  	title: 'Boat Club',
   	color: 7,
   	seats: '3',
-  	id: 'marinabeach',
+  	id: 'boatclub',
   },
   { 
   	title: 'Spencer Plaza',
@@ -237,40 +240,48 @@ var content = [
   },
 
   { 
-  	title: 'Keezhkattalai',
-  	color: 8,
+  	title: 'Foreshore Estate',
+  	color: 7,
   	seats: '3',
-  	id: 'keezhkattalai',
+  	id: 'foreshore',
   },
   { 
-  	title: 'Big Bang Theory',
-  	color: 8,
+  	title: 'Broken Bridge',
+  	color: 7,
   	seats: '3',
-  	id: 'bigbangtheory',
+  	id: 'brokenbridge',
   },
   { 
-  	title: 'Game of Thrones',
-  	color: 8,
+  	title: 'Marina Beach',
+  	color: 7,
   	seats: '16',
+    tv: 1,
   	id: 'gameofthrones',
   },
   { 
-  	title: 'House of Cards',
-  	color: 8,
+  	title: 'Elliot\'s Beach',
+  	color: 7,
   	seats: '16',
+    tv: 1,
   	id: 'houseofcards',
   },
   { 
-  	title: 'South Park',
-  	color: 8,
+  	title: 'Kovalam Beach',
+  	color: 7,
   	seats: '4',
-  	id: 'southpark',
+  	id: 'kovalam',
   },
   { 
-  	title: 'Breaking Bad',
-  	color: 8,
+  	title: 'Mahabalipuram',
+  	color: 7,
   	seats: '3',
-  	id: 'breakingbad',
+  	id: 'mahabalipuram',
+  },
+  { 
+    title: 'Amphitheater',
+    color: 6,
+    seats: '40',
+    id: 'amphitheater',
   },
 ];
 
@@ -284,7 +295,12 @@ $(document).ready(function(){
 		var result = $.grep(content, function(e){ return e.id == id; })[0];
 
 		$('.room-name').text(result['title']);
-		$('.room-seats').text(" - seats "+result['seats']);
+
+    var amenities = " - seats "+result['seats'];
+    if(result['tv'] == 1)
+      amenities += " - has TV";
+
+		$('.room-seats').text(amenities);
 
 		$('#selected-room')
 			.removeClass()
@@ -302,20 +318,23 @@ $(document).ready(function(){
 		var moveLeft = $("body").scrollLeft(), moveTop = $("body").scrollTop();
 
 		var minX = $("body").scrollLeft();
-		if( targetRoom.offset().left < minX+100) {
-	        moveLeft  = targetRoom.offset().left - 100;
+    var halfWidth = $(window).width() / 2;
+    var halfHeight = $(window).height() / 2;
+
+		if( targetRoom.offset().left < minX+halfWidth) {
+	        moveLeft  = targetRoom.offset().left - halfWidth;
 		}
 		var maxX = $("body").scrollLeft() + $(window).width();
-		if( targetRoom.offset().left > maxX-150) {
-	        moveLeft = targetRoom.offset().left - $(window).width() + 150;
+		if( targetRoom.offset().left > maxX-halfWidth) {
+	        moveLeft = targetRoom.offset().left - $(window).width() + halfWidth;
 		}
 		var minY = $("body").scrollTop();
-		if( targetRoom.offset().top < minY+100) {
-	        moveTop = targetRoom.offset().top - 100;
+		if( targetRoom.offset().top < minY+halfHeight) {
+	        moveTop = targetRoom.offset().top - halfHeight;
 		}
 		var maxY = $("body").scrollTop() + $(window).height();
-		if( targetRoom.offset().top > maxY-150) {
-		    moveTop = targetRoom.offset().top - $(window).height() + 150;
+		if( targetRoom.offset().top > maxY-halfHeight) {
+		    moveTop = targetRoom.offset().top - $(window).height() + halfHeight;
 		}
 
 	    $('html, body').animate({
@@ -332,6 +351,7 @@ $(document).ready(function(){
 				if(curDown === true){
 					$(window).scrollTop($(window).scrollTop() + (curYPos - m.pageY)); 
 					$(window).scrollLeft($(window).scrollLeft() + (curXPos - m.pageX));
+          $('#mapcontainer').addClass('noclick');
 				}
 			});
 
@@ -346,38 +366,58 @@ $(document).ready(function(){
 		});
 	});
 
-	$(window).scroll(function() {
-		console.log(
-			"Bodyleft: " + $("body").scrollLeft() +
-			", Roomleft: " + $("#harrypotter").offset().left
-			);
-	});	
+	// $(window).scroll(function() {
+	// 	console.log(
+	// 		"Bodyleft: " + $("body").scrollLeft() +
+	// 		", Roomleft: " + $("#harrypotter").offset().left
+	// 		);
+	// });	
 
 	$('.room, .big-room').click(function(){
 		var id = $(this).attr('id');
 		showRoom(id);
+    return false;
 	});
 
 	$('.meeting-room').click(function(){
 		var id = $(this).attr('name');
 		showRoom(id);
+    return false;
 	});
 
 	$('.ui.search').search({
 		source: content,
+    selectFirstResult: true,
 		onSelect: function(result, response) {
 			showRoom(result['id']);
 		}
 	});
 
-	$('#close-room').click(function(){
-		$('.room, .big-room').removeClass('faded');
-		$('#selected-room')
-			.removeClass()
-			.hide();
-		$('.ui.search').search('set value', '');
-		$('#searchbox').show();
+	$('#close-room, #mapcontainer').click(function(){
+    if ($('#mapcontainer').hasClass('noclick')) {
+      $('#mapcontainer').removeClass('noclick');
+    }
+    else {
+      $('.room, .big-room').removeClass('faded');
+      $('#selected-room')
+        .removeClass()
+        .hide();
+      $('.ui.search').search('set value', '');
+      $('#searchbox').show();
+    }
 	});
+
+  var scale = 0.8;
+  $('#mapcontainer').css('transform', 'scale('+scale+')');
+
+  $('#zoom-in').click(function(){
+      scale = scale + 0.04  ;
+    $('#mapcontainer').css('transform', 'scale('+scale+')');
+  });
+  $('#zoom-out').click(function(){
+      scale = scale - 0.04  ;
+    $('#mapcontainer').css('transform', 'scale('+scale+')');
+  });
 });
 
 $(document).keydown(function(e) {
