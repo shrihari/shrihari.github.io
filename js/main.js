@@ -536,6 +536,7 @@ $(document).ready(function(){
 
   // SET INITIAL SCALE. REMEMBER LAST-USED SCALE IF POSSIBLE.
   var scale = 0.8;
+  $('.mapcontainer').css('transform', 'scale('+scale+')');
 
   var count = 0;
 
@@ -543,6 +544,8 @@ $(document).ready(function(){
 
 	$('.ui.dropdown').dropdown();
 
+
+  // Show a room's details. That is, what happens when a room is selected.
 	var showRoom = function(id){
 		var result = $.grep(content, function(e){ return e.id == id; })[0];
 
@@ -645,13 +648,6 @@ $(document).ready(function(){
 		});
 	});
 
-	// $(window).scroll(function() {
-	// 	console.log(
-	// 		"Bodyleft: " + $("body").scrollLeft() +
-	// 		", Roomleft: " + $("#harrypotter").offset().left
-	// 		);
-	// });	
-
   // On Clicking a meeting room
 	$('.room, .big-room').click(function(){
 		var id = $(this).attr('id');
@@ -695,8 +691,6 @@ $(document).ready(function(){
     }
 	});
 
-  $('.mapcontainer').css('transform', 'scale('+scale+')');
-
   // Zoom Logic
   $('#zoom-in').click(function(){
     if(scale > 1.1) return false;
@@ -711,7 +705,7 @@ $(document).ready(function(){
 
   // Pinch Zoom
   document.addEventListener('mousewheel', function(e) {
-    // console.log(e);
+    // Zoom Out
     if(e.deltaY % 1 !== 0   &&   e.deltaY > 0) {
       e.preventDefault();
       if(scale < .5) return false;
@@ -722,7 +716,7 @@ $(document).ready(function(){
       }
     }
 
-
+    // Zoom In
     if(e.deltaY % 1 !== 0   &&   e.deltaY < 0) {
       e.preventDefault();
       if(scale > 1.1) return false;
@@ -732,9 +726,6 @@ $(document).ready(function(){
         $('.mapcontainer').css('transform', 'scale('+scale+')');
       }
     }
-    // if(e.deltaY % 1 !== 0) {
-    //   e.preventDefault();
-    // }
   });
 
   // Floor switch Logic
@@ -753,12 +744,12 @@ $(document).ready(function(){
 
 // Deselect room on Esc.
 $(document).keydown(function(e) {
-     if (e.keyCode == 27) { // escape key maps to keycode `27`
-		$('.room, .big-room').removeClass('faded');
-		$('#selected-room')
-			.removeClass()
-			.hide();
-		$('.ui.search').search('set value', '');
-		$('#searchbox').show();
+    if (e.keyCode == 27) { // escape key maps to keycode `27`
+  		$('.room, .big-room').removeClass('faded');
+  		$('#selected-room')
+  			.removeClass()
+  			.hide();
+  		$('.ui.search').search('set value', '');
+  		$('#searchbox').show();
     }
 });
