@@ -9,12 +9,15 @@
         <title>Freshdesk - Meetings Rooms</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" /> -->
+
 
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="semantic.min.css">
 
         <script src="js/jquery.js"></script>
         <script src="semantic.min.js"></script>
+        <script src="js/pinchzoom.min.js"></script>
         <script src="js/main.js"></script>
     </head>
     <body>
@@ -411,8 +414,8 @@
             </div>
 
             <div class="lifts" style="left: -380px; top: -20px;">
-              <div><img src="img/lifts.svg" /></div>
-              <div class="name">Lifts</div>
+              <div><img src="img/go-down.svg" /></div>
+              <div class="name">Ground Floor</div>
             </div>
         </div>
 
@@ -427,7 +430,7 @@
           <div class="block-name" style="left: 170px; top: 200px;">Block <strong>B</strong></div>
           <div class="block-name" style="left: -160px; top: 200px;">Block <strong>C</strong></div>
 
-          <div id="origin"></div>
+          <!-- <div id="origin"></div> -->
           <div id="endoftheworld"></div>
 
           <div class="road vertical-road" style="height: 870px; left: -640px; top: -260px;">fhg0</div>
@@ -481,6 +484,7 @@
           <div id="ship-6" class="room color6" style="left: -170px; top: 320px; width: 95px;">
             <div class="abbr">S</div>
             <div class="name top-slant">Scorpion</div>
+              <div class="tv"></div>
           </div>
           <div id="ship-7" class="room color6" style="left: -170px; top: 370px;">
             <div class="abbr">S</div>
@@ -515,19 +519,20 @@
 
           <div id="ship-14" class="room color7" style="left: -220px; top: 450px;">
             <div class="abbr">A</div>
-            <div class="name bottom-slant">Admiral</div>
+            <div class="name top-slant" style="width: 30px;">Argo</div>
           </div>
           <div id="ship-15" class="room color7" style="left: -270px; top: 450px;">
             <div class="abbr">A</div>
-            <div class="name top-slant">Argo</div>
+            <div class="name top-slant" style="width: 40px;">Admiral</div>
           </div>
           <div id="ship-16" class="room color7" style="left: -320px; top: 450px;">
             <div class="abbr">A</div>
-            <div class="name name-left">Amethyst</div>
+            <div class="name top-slant" style="width: 50px;">Amethyst</div>
           </div>
           <div id="ship-17" class="room color7" style="left: -320px; top: 500px; width: 55px; height: 65px;">
             <div class="abbr" style="margin-top: 16px;">B</div>
-            <div class="name name-left">Beagle</div>
+            <div class="name name-right" style="left: 60px;">Beagle</div>
+              <div class="tv"></div>
           </div>
           <div id="ship-18" class="room color7" style="left: -320px; top: 570px;">
             <div class="abbr">B</div>
@@ -583,9 +588,14 @@
             <div class="name">Reception</div>
           </div>
 
-          <div class="grey" style="left: -550px; top: -145px; width: 80px; height: 65px; padding-top: 10px;">
+          <div class="grey" style="left: -550px; top: -155px; width: 90px; height: 75px; padding-top: 15px;">
             <div><img src="img/chess.svg" /></div>
             <div class="name">Games</div>
+          </div>
+
+          <div class="grey" style="left: -490px; top: 50px; width: 60px; height: 80px; padding-top: 15px;">
+            <div><img src="img/kaapi.svg" /></div>
+            <div class="name">Kaapi</div>
           </div>
 
           <div class="grey" style="left: -740px; top: 500px; width: 95px; height: 110px; padding-top: 30px;">
@@ -594,8 +604,8 @@
           </div>
 
           <div class="lifts" style="left: -380px; top: -20px;">
-            <div><img src="img/lifts.svg" /></div>
-            <div class="name">Lifts</div>
+            <div><img src="img/go-up.svg" /></div>
+            <div class="name">First Floor</div>
           </div>
 
         </div>

@@ -340,37 +340,38 @@ var content = [
   { 
     title: 'Santa Maria',
     color: 6,
-    seats: '5',
+    seats: '3',
     id: 'ship-2',
     floor: 0,
   },
   { 
     title: 'Seawise Giant',
     color: 6,
-    seats: '5',
+    seats: '3',
     id: 'ship-3',
     floor: 0,
   },
   { 
     title: 'Solar Sailor',
     color: 6,
-    seats: '5',
+    seats: '3',
     id: 'ship-4',
     floor: 0,
   },
   { 
     title: 'Sea Shadow',
     color: 6,
-    seats: '5',
+    seats: '3',
     id: 'ship-5',
     floor: 0,
   },
   { 
     title: 'Scorpion',
     color: 6,
-    seats: '15',
+    seats: '10',
     id: 'ship-6',
     floor: 0,
+    tv: 1,
   },
   { 
     title: 'Seraph',
@@ -390,28 +391,28 @@ var content = [
   { 
     title: 'Flying Dutchmen',
     color: 8,
-    seats: '5',
+    seats: '4',
     id: 'ship-9',
     floor: 0,
   },
   { 
     title: 'Black Pearl',
     color: 8,
-    seats: '5',
+    seats: '4',
     id: 'ship-10',
     floor: 0,
   },
   { 
     title: 'Montana',
     color: 8,
-    seats: '5',
+    seats: '3',
     id: 'ship-11',
     floor: 0,
   },
   { 
     title: 'Poseidon',
     color: 8,
-    seats: '5',
+    seats: '3',
     id: 'ship-12',
     floor: 0,
   },
@@ -424,16 +425,16 @@ var content = [
   },
 
   { 
-    title: 'Admiral',
+    title: 'Argo',
     color: 7,
-    seats: '5',
+    seats: '3',
     id: 'ship-14',
     floor: 0,
   },
   { 
-    title: 'Argo',
+    title: 'Admiral',
     color: 7,
-    seats: '5',
+    seats: '3',
     id: 'ship-15',
     floor: 0,
   },
@@ -450,6 +451,7 @@ var content = [
     seats: '20',
     id: 'ship-17',
     floor: 0,
+    tv: 1,
   },
   { 
     title: 'Batillus',
@@ -461,42 +463,42 @@ var content = [
   { 
     title: 'Bismarck',
     color: 7,
-    seats: '5',
+    seats: '3',
     id: 'ship-19',
     floor: 0,
   },
   { 
     title: 'Barzan',
     color: 7,
-    seats: '5',
+    seats: '3',
     id: 'ship-20',
     floor: 0,
   },
   { 
     title: 'INS S-21',
     color: 7,
-    seats: '5',
+    seats: '3',
     id: 'ship-21',
     floor: 0,
   },
   { 
     title: 'INS Chakra',
     color: 7,
-    seats: '5',
+    seats: '3',
     id: 'ship-22',
     floor: 0,
   },
   { 
     title: 'INS Arihant',
     color: 7,
-    seats: '5',
+    seats: '4',
     id: 'ship-23',
     floor: 0,
   },
   { 
     title: 'INS Viraat',
     color: 7,
-    seats: '5',
+    seats: '4',
     id: 'ship-24',
     floor: 0,
   },
@@ -510,7 +512,7 @@ var content = [
   { 
     title: 'Color Magic',
     color: 7,
-    seats: '5',
+    seats: '3',
     id: 'ship-26',
     floor: 0,
   },
@@ -527,11 +529,18 @@ var content = [
 
 $(document).ready(function(){
 
-	$('#selected-room').hide();
-
+  // SET INITIAL FLOOR. REMEMBER LAST-USED FLOOR IF POSSIBLE.
   var currentFloor = 1;
   $('#ground-floor').hide();
 	
+
+  // SET INITIAL SCALE. REMEMBER LAST-USED SCALE IF POSSIBLE.
+  var scale = 0.8;
+
+  var count = 0;
+
+  $('#selected-room').hide();
+
 	$('.ui.dropdown').dropdown();
 
 	var showRoom = function(id){
@@ -686,17 +695,46 @@ $(document).ready(function(){
     }
 	});
 
-  var scale = 0.8;
   $('.mapcontainer').css('transform', 'scale('+scale+')');
 
   // Zoom Logic
   $('#zoom-in').click(function(){
+    if(scale > 1.1) return false;
     scale = scale + 0.04 ;
     $('.mapcontainer').css('transform', 'scale('+scale+')');
   });
   $('#zoom-out').click(function(){
+    if(scale < .5) return false;
     scale = scale - 0.04 ;
     $('.mapcontainer').css('transform', 'scale('+scale+')');
+  });
+
+  // Pinch Zoom
+  document.addEventListener('mousewheel', function(e) {
+    // console.log(e);
+    if(e.deltaY % 1 !== 0   &&   e.deltaY > 0) {
+      e.preventDefault();
+      if(scale < .5) return false;
+      count += 1;
+      if (count % 7 == 0) {
+        scale = scale - 0.04 ;
+        $('.mapcontainer').css('transform', 'scale('+scale+')');
+      }
+    }
+
+
+    if(e.deltaY % 1 !== 0   &&   e.deltaY < 0) {
+      e.preventDefault();
+      if(scale > 1.1) return false;
+      count += 1;
+      if (count % 7 == 0) {
+        scale = scale + 0.04 ;
+        $('.mapcontainer').css('transform', 'scale('+scale+')');
+      }
+    }
+    // if(e.deltaY % 1 !== 0) {
+    //   e.preventDefault();
+    // }
   });
 
   // Floor switch Logic
@@ -713,6 +751,7 @@ $(document).ready(function(){
   });
 });
 
+// Deselect room on Esc.
 $(document).keydown(function(e) {
      if (e.keyCode == 27) { // escape key maps to keycode `27`
 		$('.room, .big-room').removeClass('faded');

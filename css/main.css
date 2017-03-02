@@ -11,7 +11,7 @@ textarea, input { outline: none; }
 	background-size: cover;
 }*/
 body {
-	background: #DADFE6!important;
+	background: #CFD8E6!important;
 	/*background: transparent!important;*/
 	overflow: auto!important;
 	/*font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;*/
@@ -38,6 +38,7 @@ body {
 	-moz-user-select: none; 
 	-ms-user-select: none; 
 	user-select: none; 
+	transition: transform 0.3s ease;
 }
 #origin {
 	width: 10px;
@@ -705,14 +706,12 @@ body {
 	background: #FFF;
 	/*border: 1px solid rgba(0,0,0,0.15);*/
 	position: fixed;
-	/*width: 320px;*/
-	/*height: 90px;*/
-	right: 80px;
-	bottom: 20px;
+	/*top: 140px; right: 20px;Positioned in top right. */
+	bottom: 20px; right: 80px;	/* Positioned in bottom right */
 	border-radius: 5px;
 	/*box-shadow: 0 4px 10px 0 rgba(0,0,0,0.20);*/
     box-shadow: 0 2px 4px rgba(0,0,0,0.2), 0 -1px 0px rgba(0,0,0,0.02);
-    /*width: 150px;*/
+
 }
 #floor-controls .active {
 	background: #51AE45!important;
