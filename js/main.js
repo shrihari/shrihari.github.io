@@ -755,6 +755,14 @@ $(document).ready(function(){
     }
   });
 
+  document.addEventListener('mousewheel', function(e) {
+    if(e.touches.length == 2) {
+    var scaling = true;
+    console.log("SCALING");a
+    alert("hello");
+    } 
+  });
+
   // Floor switch Logic
   $('#first-floor-button').click(function(){
     switchToFirstFloor();
