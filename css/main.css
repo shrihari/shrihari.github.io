@@ -22,6 +22,7 @@ body {
 
 #map {
 	line-height: normal;
+	/*transform-origin: -860px -350px;*/
 	/*position: absolute;*/
 	/*top: 0; left: 0;*/
 }
@@ -610,6 +611,7 @@ body {
 	margin: 7px;
 	padding: 8px 12px;
 	width: 384px;
+	/*width: 94%;*/
 	position: absolute;
 	top: 50px;
 	overflow: hidden;
@@ -765,4 +767,50 @@ body {
     transform: scale(5);
     opacity: 0;
   }
+}
+
+
+#map {
+	position: fixed;
+	/*width: 100%;*/
+	/*height: 100%;*/
+	left: 0; right: 0;
+	top: 0; bottom: 0;
+	overflow: scroll!important;
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+
+	body {
+
+	}
+
+	#map {
+		top: 90px;
+		bottom: 0px;
+	}
+	.mapcontainer {
+		/*position: relative;*/
+		/*overflow: scroll;*/
+	}
+
+	#widget {
+		/*background: red;*/
+		width: 100%;
+		top: 0;
+		left: 0;
+		right: 0;
+		position: absolute;
+
+		border-radius: 0px;
+		border: 0;
+	}
+	#selected-room {
+		width: 96%;
+		margin: 7px 2%;
+	}
+	#floor-controls {
+		left: 20px;
+		right: auto;
+	}
 }

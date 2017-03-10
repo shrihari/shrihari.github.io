@@ -403,7 +403,7 @@ var content = [
     floor: 0,
   },
   { 
-    title: 'Montana',
+    title: 'Unicorn',
     color: 8,
     seats: '3',
     id: 'ship-11',
@@ -544,6 +544,7 @@ $(document).ready(function(){
 
 	$('.ui.dropdown').dropdown();
 
+  console.log($(window).width(), $(window).height());
 
   // Show a room's details. That is, what happens when a room is selected.
 	var showRoom = function(id){
@@ -570,32 +571,58 @@ $(document).ready(function(){
 
 		// Scrolling logic
 		var targetRoom = $("#"+result['id']);
-		var moveLeft = $("body").scrollLeft(), moveTop = $("body").scrollTop();
+		var moveLeft = $("#map").scrollLeft(), moveTop = $("#map").scrollTop();
 
-		var minX = $("body").scrollLeft();
+    console.log(targetRoom);
+    console.log("Map position", moveLeft, moveTop);
+
+		var minX = $("#map").scrollLeft();
+    var maxX = $("#map").scrollLeft() + $(window).width();
+
+
+    var minY = $("#map").scrollTop();
+    var maxY = $("#map").scrollTop() + $(window).height();
+
     var halfWidth = $(window).width() / 2;
     var halfHeight = $(window).height() / 2;
 
-		if( targetRoom.offset().left < minX+halfWidth) {
-	        moveLeft  = targetRoom.offset().left - halfWidth;
-		}
-		var maxX = $("body").scrollLeft() + $(window).width();
-		if( targetRoom.offset().left > maxX-halfWidth) {
-	        moveLeft = targetRoom.offset().left - $(window).width() + halfWidth;
-		}
-		var minY = $("body").scrollTop();
-		if( targetRoom.offset().top < minY+halfHeight) {
-	        moveTop = targetRoom.offset().top - halfHeight;
-		}
-		var maxY = $("body").scrollTop() + $(window).height();
-		if( targetRoom.offset().top > maxY-halfHeight) {
-		    moveTop = targetRoom.offset().top - $(window).height() + halfHeight;
-		}
+    console.log("Half ", halfWidth, halfHeight);
 
-	    $('html, body').animate({
-	        scrollTop: moveTop,
-	        scrollLeft: moveLeft
-	    }, 300);
+    console.log("Min ", minX, minY);
+
+    console.log("Max ", maxX, maxY);
+
+    console.log("Target ", targetRoom.offset().left, targetRoom.offset().top);
+
+  //   // Room is in far left
+		// if( targetRoom.offset().left < minX+halfWidth) {
+	 //        moveLeft  = targetRoom.offset().left - halfWidth;
+		// }
+
+  //   // Room is in far right
+		// if( targetRoom.offset().left > maxX-halfWidth) {
+	 //        moveLeft = targetRoom.offset().left - $(window).width() + halfWidth;
+		// }
+
+  //   // Room is in far top
+		// if( targetRoom.offset().top < minY+halfHeight) {
+	 //        moveTop = targetRoom.offset().top - halfHeight;
+
+		// }
+
+  //   // Room is in far bottom
+		// if( targetRoom.offset().top > maxY-halfHeight) {
+		//     moveTop = targetRoom.offset().top - $(window).height() + halfHeight;
+		// }
+
+    $('#map').animate({
+        scrollTop: (350 * scale) + targetRoom.position().top - halfHeight,
+        scrollLeft: (860 * scale) + targetRoom.position().left - halfWidth
+    }, 300);
+
+    console.log("New Map position", moveLeft, moveTop);
+
+
 	};
 
   // Switch to Ground Floor
@@ -625,28 +652,28 @@ $(document).ready(function(){
   }
 
   // Drag to pan the map
-	$(function(){
-		var curDown = false,
-			curYPos = 0,
-			curXPos = 0;
-			$(window).mousemove(function(m){
-				if(curDown === true){
-					$(window).scrollTop($(window).scrollTop() + (curYPos - m.pageY)); 
-					$(window).scrollLeft($(window).scrollLeft() + (curXPos - m.pageX));
-          $('.mapcontainer').addClass('noclick');
-				}
-			});
+	// $(function(){
+	// 	var curDown = false,
+	// 		curYPos = 0,
+	// 		curXPos = 0;
+	// 		$(window).mousemove(function(m){
+	// 			if(curDown === true){
+	// 				$(window).scrollTop($(window).scrollTop() + (curYPos - m.pageY)); 
+	// 				$(window).scrollLeft($(window).scrollLeft() + (curXPos - m.pageX));
+ //          $('.mapcontainer').addClass('noclick');
+	// 			}
+	// 		});
 
-		$(window).mousedown(function(m){
-			curDown = true;
-			curYPos = m.pageY;
-			curXPos = m.pageX;
-		});
+	// 	$(window).mousedown(function(m){
+	// 		curDown = true;
+	// 		curYPos = m.pageY;
+	// 		curXPos = m.pageX;
+	// 	});
 
-		$(window).mouseup(function(){
-			curDown = false;
-		});
-	});
+	// 	$(window).mouseup(function(){
+	// 		curDown = false;
+	// 	});
+	// });
 
   // On Clicking a meeting room
 	$('.room, .big-room').click(function(){
