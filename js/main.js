@@ -755,60 +755,126 @@ $(document).ready(function(){
     }
   });
 
-  var scaling;
+  // var scaling;
 
-  document.addEventListener('touchstart', function(e) {
-    if(e.touches.length == 2) {
+  // document.addEventListener('touchstart', function(e) {
+  //   if(e.touches.length == 2) {
+  //     scaling = true;
+  //     console.log("TOUCH START");
+  //     console.log(e);
+  //     // e.preventDefault();
+  //   } 
+  // });
+  // document.addEventListener('touchmove', function(e) {
+  //   if(e.touches.length == 2) {
+  //     console.log("TOUCH MOVE");
+  //     console.log(e);
 
-      // e.preventDefault();
-      // scale = scale + 0.04 ;
-      // $('.mapcontainer').css('transform', 'scale('+scale+')');
+  //     // Zoom Out
+  //     if(e.scale < 1) {
+  //       e.preventDefault();
+  //       if(scale < .4) return false;
+  //       count += 1;
+  //       // if (count % 7 == 0) {
+  //         scale = scale - 0.04 ;
+  //         // scale = scale * e.scale;
+  //         $('.mapcontainer').css('transform', 'scale('+scale+')');
+  //       // }
+  //     }
 
-      var scaling = true;
-      console.log("TOUCH START");
-      console.log(e);
-      // e.preventDefault();
-    } 
+  //     // Zoom In
+  //     if(e.scale > 1) {
+  //       e.preventDefault();
+  //       if(scale > 1.2) return false;
+  //       count += 1;
+  //       // if (count % 7 == 0) {
+  //         scale = scale + 0.04 ;
+  //         // scale = scale * e.scale;
+  //         $('.mapcontainer').css('transform', 'scale('+scale+')');
+  //       // }
+  //     }
+
+  //     e.preventDefault();
+  //   } 
+  // });
+  // document.addEventListener('touchend', function(e) {
+  //   if(scaling) {
+  //     scaling = false;
+  //     console.log("TOUCH END");
+  //     console.log(e);
+  //     // e.preventDefault();
+  //   } 
+  // });
+
+  var hammer = new Hammer(document.getElementById('map'), {
+    domEvents: false
   });
-  document.addEventListener('touchmove', function(e) {
-    if(e.touches.length == 2) {
-      console.log("TOUCH MOVE");
-      console.log(e);
 
-      // Zoom Out
-      if(e.scale < 1) {
-        e.preventDefault();
-        if(scale < .4) return false;
-        count += 1;
-        // if (count % 7 == 0) {
-          scale = scale - 0.04 ;
-          // scale = scale * e.scale;
-          $('.mapcontainer').css('transform', 'scale('+scale+')');
-        // }
-      }
-
-      // Zoom In
-      if(e.scale > 1) {
-        e.preventDefault();
-        if(scale > 1.2) return false;
-        count += 1;
-        // if (count % 7 == 0) {
-          scale = scale + 0.04 ;
-          // scale = scale * e.scale;
-          $('.mapcontainer').css('transform', 'scale('+scale+')');
-        // }
-      }
-
-      e.preventDefault();
-    } 
+  hammer.get('pinch').set({
+    enable: true
   });
-  document.addEventListener('touchend', function(e) {
-    if(scaling) {
-      scaling = false;
-      console.log("TOUCH END");
-      console.log(e);
-      // e.preventDefault();
-    } 
+
+  hammer.on('pinchstart', function (e) {
+    console.log("🔨 START");
+    console.log(e.scale);
+    // e.preventDefault();
+  });
+
+  hammer.on('pinchmove', function (e) {
+    // console.log("");
+    console.log(e.scale);
+    // e.preventDefault();
+  });
+
+  var iX = 0, iY = 0;
+
+  hammer.on('panstart', function (e) {
+    // $('#map').scrollTop($("#map").scrollTop() - e.deltaY);
+    // $('#map').scrollLeft($("#map").scrollLeft() - e.deltaX);
+
+    // translate(e.deltaX, e.deltaY);
+    // console.log("PAN START");
+    // console.log(e.center);
+
+    iX = e.center.x;
+    iY = e.center.y;
+  });
+  hammer.on('panmove', function (e) {
+    // $('#map').scrollTop($("#map").scrollTop() - e.deltaY);
+    // $('#map').scrollLeft($("#map").scrollLeft() - e.deltaX);
+
+    // translate(e.deltaX, e.deltaY);
+    // console.log("PAN MOVE");
+    // console.log(e.center);
+
+    var cX = e.center.x;
+    var cY = e.center.y;
+
+    var deltaX = iX - cX;
+    var deltaY = iY - cY;
+
+
+    // console.log(deltaX, deltaY);
+
+    // console.log($("#map").scrollLeft(), $("#map").scrollTop());
+
+
+    $('#map').scrollLeft($("#map").scrollLeft() + deltaX);
+    $('#map').scrollTop($("#map").scrollTop() + deltaY);
+
+    // console.log($("#map").scrollLeft(), $("#map").scrollTop());
+    // console.log("--------------------");
+
+    iX = cX;
+    iY = cY;
+  });
+  hammer.on('panend', function (e) {
+    // $('#map').scrollTop($("#map").scrollTop() - e.deltaY);
+    // $('#map').scrollLeft($("#map").scrollLeft() - e.deltaX);
+
+    // translate(e.deltaX, e.deltaY);
+    console.log("PAN END");
+    console.log(e.center);
   });
 
   // Floor switch Logic
