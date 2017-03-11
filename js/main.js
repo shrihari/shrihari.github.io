@@ -755,11 +755,59 @@ $(document).ready(function(){
     }
   });
 
-  document.addEventListener('mousewheel', function(e) {
+  var scaling;
+
+  document.addEventListener('touchstart', function(e) {
     if(e.touches.length == 2) {
-    var scaling = true;
-    console.log("SCALING");a
-    alert("hello");
+
+      // e.preventDefault();
+      // scale = scale + 0.04 ;
+      // $('.mapcontainer').css('transform', 'scale('+scale+')');
+
+      var scaling = true;
+      console.log("TOUCH START");
+      console.log(e);
+      // e.preventDefault();
+    } 
+  });
+  document.addEventListener('touchmove', function(e) {
+    if(e.touches.length == 2) {
+      console.log("TOUCH MOVE");
+      console.log(e);
+
+      // Zoom Out
+      if(e.scale < 1) {
+        e.preventDefault();
+        if(scale < .4) return false;
+        count += 1;
+        // if (count % 7 == 0) {
+          scale = scale - 0.04 ;
+          // scale = scale * e.scale;
+          $('.mapcontainer').css('transform', 'scale('+scale+')');
+        // }
+      }
+
+      // Zoom In
+      if(e.scale > 1) {
+        e.preventDefault();
+        if(scale > 1.2) return false;
+        count += 1;
+        // if (count % 7 == 0) {
+          scale = scale + 0.04 ;
+          // scale = scale * e.scale;
+          $('.mapcontainer').css('transform', 'scale('+scale+')');
+        // }
+      }
+
+      e.preventDefault();
+    } 
+  });
+  document.addEventListener('touchend', function(e) {
+    if(scaling) {
+      scaling = false;
+      console.log("TOUCH END");
+      console.log(e);
+      // e.preventDefault();
     } 
   });
 

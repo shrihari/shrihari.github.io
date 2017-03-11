@@ -2,7 +2,11 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 textarea, input { outline: none; }
-
+html {
+	overflow: hidden;
+	height: 100%;
+    -webkit-overflow-scrolling: touch;
+}
 /*html {
 	background: url(../img/stars.jpg) no-repeat center center fixed; 
 	-webkit-background-size: cover;
@@ -11,6 +15,7 @@ textarea, input { outline: none; }
 	background-size: cover;
 }*/
 body {
+	height: 100%;
 	background: #CFD8E6!important;
 	/*background: transparent!important;*/
 	overflow: auto!important;
@@ -781,10 +786,22 @@ body {
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
 
+	html, window, body {
+		overflow: hidden;
+	}
+	
 	body {
 
 	}
-
+body:before{
+    display: block;
+    content: " ";
+    height:20px;
+    top: 0;
+    background:rgba(0,0,0,0.8);
+    position:-webkit-sticky;
+    position:sticky;
+}
 	#map {
 		top: 90px;
 		bottom: 0px;
@@ -805,12 +822,19 @@ body {
 		border-radius: 0px;
 		border: 0;
 	}
+	#header {
+		background: white;
+		border-bottom: 1px solid #F2F2F2;
+	}
 	#selected-room {
 		width: 96%;
 		margin: 7px 2%;
 	}
 	#floor-controls {
-		left: 20px;
-		right: auto;
+		right: 10px;
+		bottom: 10px;
+	}
+	#zoom-controls {
+		display: none;
 	}
 }
