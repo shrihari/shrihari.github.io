@@ -126,7 +126,7 @@ var content = [
   { 
   	title: 'Andromeda',
   	color: 2,
-  	seats: '25',
+  	seats: '56',
     tv: 1,
   	id: 'matrix',
     floor: 1,
@@ -293,17 +293,9 @@ var content = [
   { 
   	title: 'Marina Beach',
   	color: 7,
-  	seats: '16',
+  	seats: '35',
     tv: 1,
   	id: 'gameofthrones',
-    floor: 1,
-  },
-  { 
-  	title: 'Elliot\'s Beach',
-  	color: 7,
-  	seats: '16',
-    tv: 1,
-  	id: 'houseofcards',
     floor: 1,
   },
   { 
@@ -314,10 +306,10 @@ var content = [
     floor: 1,
   },
   { 
-  	title: 'Pebble Beach',
+  	title: 'Elliot\'s Beach',
   	color: 7,
   	seats: '3',
-  	id: 'pebble',
+  	id: 'elliots',
     floor: 1,
   },
   { 
@@ -422,6 +414,7 @@ var content = [
     seats: '10',
     id: 'ship-13',
     floor: 0,
+    tv: 1,
   },
 
   { 
@@ -535,7 +528,7 @@ $(document).ready(function(){
 	
 
   // SET INITIAL SCALE. REMEMBER LAST-USED SCALE IF POSSIBLE.
-  var scale = 0.8;
+  var scale = 0.9;
   $('.mapcontainer').css('transform', 'scale('+scale+')');
 
   var count = 0;
@@ -552,11 +545,14 @@ $(document).ready(function(){
 
 		$('.room-name').text(result['title']);
 
-    var amenities = " - seats "+result['seats'];
+    // var amenities = " - seats "+result['seats'];
     if(result['tv'] == 1)
-      amenities += " - has TV";
+      $('.room-tv').show();
+    else
+      $('.room-tv').hide();
+      // amenities += " - has TV";
 
-		$('.room-seats').text(amenities);
+		$('.room-seats').text(result['seats']);
 
 		$('#selected-room')
 			.removeClass()
@@ -566,15 +562,9 @@ $(document).ready(function(){
 		$('.room, .big-room, .lifts').addClass('faded');
 		$("#"+result['id']).removeClass('faded');
 
-		// console.log($("body").scrollLeft());
-		// console.log($("#"+result['id']).offset().left);
-
 		// Scrolling logic
 		var targetRoom = $("#"+result['id']);
 		var moveLeft = $("#map").scrollLeft(), moveTop = $("#map").scrollTop();
-
-    console.log(targetRoom);
-    console.log("Map position", moveLeft, moveTop);
 
 		var minX = $("#map").scrollLeft();
     var maxX = $("#map").scrollLeft() + $(window).width();
@@ -586,42 +576,10 @@ $(document).ready(function(){
     var halfWidth = $(window).width() / 2;
     var halfHeight = $(window).height() / 2;
 
-    console.log("Half ", halfWidth, halfHeight);
-
-    console.log("Min ", minX, minY);
-
-    console.log("Max ", maxX, maxY);
-
-    console.log("Target ", targetRoom.offset().left, targetRoom.offset().top);
-
-  //   // Room is in far left
-		// if( targetRoom.offset().left < minX+halfWidth) {
-	 //        moveLeft  = targetRoom.offset().left - halfWidth;
-		// }
-
-  //   // Room is in far right
-		// if( targetRoom.offset().left > maxX-halfWidth) {
-	 //        moveLeft = targetRoom.offset().left - $(window).width() + halfWidth;
-		// }
-
-  //   // Room is in far top
-		// if( targetRoom.offset().top < minY+halfHeight) {
-	 //        moveTop = targetRoom.offset().top - halfHeight;
-
-		// }
-
-  //   // Room is in far bottom
-		// if( targetRoom.offset().top > maxY-halfHeight) {
-		//     moveTop = targetRoom.offset().top - $(window).height() + halfHeight;
-		// }
-
     $('#map').animate({
         scrollTop: (350 * scale) + targetRoom.position().top - halfHeight,
         scrollLeft: (860 * scale) + targetRoom.position().left - halfWidth
     }, 300);
-
-    console.log("New Map position", moveLeft, moveTop);
-
 
 	};
 
@@ -650,30 +608,6 @@ $(document).ready(function(){
     else if(currentFloor == 0)
       switchToFirstFloor();
   }
-
-  // Drag to pan the map
-	// $(function(){
-	// 	var curDown = false,
-	// 		curYPos = 0,
-	// 		curXPos = 0;
-	// 		$(window).mousemove(function(m){
-	// 			if(curDown === true){
-	// 				$(window).scrollTop($(window).scrollTop() + (curYPos - m.pageY)); 
-	// 				$(window).scrollLeft($(window).scrollLeft() + (curXPos - m.pageX));
- //          $('.mapcontainer').addClass('noclick');
-	// 			}
-	// 		});
-
-	// 	$(window).mousedown(function(m){
-	// 		curDown = true;
-	// 		curYPos = m.pageY;
-	// 		curXPos = m.pageX;
-	// 	});
-
-	// 	$(window).mouseup(function(){
-	// 		curDown = false;
-	// 	});
-	// });
 
   // On Clicking a meeting room
 	$('.room, .big-room').click(function(){
@@ -730,14 +664,14 @@ $(document).ready(function(){
     $('.mapcontainer').css('transform', 'scale('+scale+')');
   });
 
-  // Pinch Zoom
+  // Pinch Zoom on Desktop
   document.addEventListener('mousewheel', function(e) {
     // Zoom Out
     if(e.deltaY % 1 !== 0   &&   e.deltaY > 0) {
       e.preventDefault();
       if(scale < .5) return false;
       count += 1;
-      if (count % 7 == 0) {
+      if (count % 3 == 0) {
         scale = scale - 0.04 ;
         $('.mapcontainer').css('transform', 'scale('+scale+')');
       }
@@ -748,64 +682,14 @@ $(document).ready(function(){
       e.preventDefault();
       if(scale > 1.1) return false;
       count += 1;
-      if (count % 7 == 0) {
+      if (count % 3 == 0) {
         scale = scale + 0.04 ;
         $('.mapcontainer').css('transform', 'scale('+scale+')');
       }
     }
   });
 
-  // var scaling;
-
-  // document.addEventListener('touchstart', function(e) {
-  //   if(e.touches.length == 2) {
-  //     scaling = true;
-  //     console.log("TOUCH START");
-  //     console.log(e);
-  //     // e.preventDefault();
-  //   } 
-  // });
-  // document.addEventListener('touchmove', function(e) {
-  //   if(e.touches.length == 2) {
-  //     console.log("TOUCH MOVE");
-  //     console.log(e);
-
-  //     // Zoom Out
-  //     if(e.scale < 1) {
-  //       e.preventDefault();
-  //       if(scale < .4) return false;
-  //       count += 1;
-  //       // if (count % 7 == 0) {
-  //         scale = scale - 0.04 ;
-  //         // scale = scale * e.scale;
-  //         $('.mapcontainer').css('transform', 'scale('+scale+')');
-  //       // }
-  //     }
-
-  //     // Zoom In
-  //     if(e.scale > 1) {
-  //       e.preventDefault();
-  //       if(scale > 1.2) return false;
-  //       count += 1;
-  //       // if (count % 7 == 0) {
-  //         scale = scale + 0.04 ;
-  //         // scale = scale * e.scale;
-  //         $('.mapcontainer').css('transform', 'scale('+scale+')');
-  //       // }
-  //     }
-
-  //     e.preventDefault();
-  //   } 
-  // });
-  // document.addEventListener('touchend', function(e) {
-  //   if(scaling) {
-  //     scaling = false;
-  //     console.log("TOUCH END");
-  //     console.log(e);
-  //     // e.preventDefault();
-  //   } 
-  // });
-
+  // Pan and Pinch Zoom for Mobile
   var hammer = new Hammer(document.getElementById('map'), {
     domEvents: false
   });
@@ -814,67 +698,52 @@ $(document).ready(function(){
     enable: true
   });
 
+  var hscale = 0;
+
   hammer.on('pinchstart', function (e) {
-    console.log("🔨 START");
-    console.log(e.scale);
-    // e.preventDefault();
+    hscale = e.scale;
   });
 
   hammer.on('pinchmove', function (e) {
-    // console.log("");
-    console.log(e.scale);
-    // e.preventDefault();
+    var deltaScale = hscale - e.scale;
+
+    if(deltaScale > 0)
+    {
+      // Zoom out
+      if(scale < .4) return false;
+
+      scale = scale - (0.5 * deltaScale);
+      $('.mapcontainer').css('transform', 'scale('+scale+')');
+    } else if(deltaScale < 0)
+    {
+      // Zoom in
+      if(scale > 1.6) return false;
+
+      scale = scale - (0.5 * deltaScale);
+      $('.mapcontainer').css('transform', 'scale('+scale+')');
+    }
+
+    hscale = e.scale;
   });
 
   var iX = 0, iY = 0;
 
   hammer.on('panstart', function (e) {
-    // $('#map').scrollTop($("#map").scrollTop() - e.deltaY);
-    // $('#map').scrollLeft($("#map").scrollLeft() - e.deltaX);
-
-    // translate(e.deltaX, e.deltaY);
-    // console.log("PAN START");
-    // console.log(e.center);
-
     iX = e.center.x;
     iY = e.center.y;
   });
   hammer.on('panmove', function (e) {
-    // $('#map').scrollTop($("#map").scrollTop() - e.deltaY);
-    // $('#map').scrollLeft($("#map").scrollLeft() - e.deltaX);
-
-    // translate(e.deltaX, e.deltaY);
-    // console.log("PAN MOVE");
-    // console.log(e.center);
-
     var cX = e.center.x;
     var cY = e.center.y;
 
     var deltaX = iX - cX;
     var deltaY = iY - cY;
 
-
-    // console.log(deltaX, deltaY);
-
-    // console.log($("#map").scrollLeft(), $("#map").scrollTop());
-
-
     $('#map').scrollLeft($("#map").scrollLeft() + deltaX);
     $('#map').scrollTop($("#map").scrollTop() + deltaY);
 
-    // console.log($("#map").scrollLeft(), $("#map").scrollTop());
-    // console.log("--------------------");
-
     iX = cX;
     iY = cY;
-  });
-  hammer.on('panend', function (e) {
-    // $('#map').scrollTop($("#map").scrollTop() - e.deltaY);
-    // $('#map').scrollLeft($("#map").scrollLeft() - e.deltaX);
-
-    // translate(e.deltaX, e.deltaY);
-    console.log("PAN END");
-    console.log(e.center);
   });
 
   // Floor switch Logic

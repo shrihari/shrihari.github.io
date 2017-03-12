@@ -91,7 +91,7 @@ body {
 	height: 45px;
 	border-radius: 6px;
 }
-.tv {
+.has-tv {
 	width: 13px; height: 10px;
 	background: transparent url(../img/tv.svg) no-repeat;
 	position: absolute;
@@ -414,17 +414,17 @@ body {
 .gameofthrones, .houseofcards {
 	position: absolute;
 	cursor: pointer;
-	width: 56px;
+	width: 115px;
 	height: 110px;
 }
-.gameofthrones { border-radius: 6px 0 0 6px; }
+.gameofthrones { border-radius: 6px; }
 .houseofcards { border-radius: 0 6px 6px 0; }
 
 .gameofthrones .abbr, .houseofcards .abbr {
 	color: #FFF;
 	font-size: 26px;
 	text-align: center;
-	width: 56px;
+	width: 115px;
 	margin-top: 40px;
 }
 #breakingbad .abbr8 {
@@ -624,7 +624,7 @@ body {
 .room-name {  }
 .room-seats { 
 	font-size: 14px;
-	opacity: 0.5;
+	/*opacity: 0.5;*/
 }
 
 #close-room {
@@ -790,10 +790,6 @@ body {
 		overflow: hidden;
 	}
 
-	body {
-
-	}
-
 	body:before{
 	    display: block;
 	    content: " ";
@@ -803,18 +799,12 @@ body {
 	    position:-webkit-sticky;
 	    position:sticky;
 	}
-	
+
 	#map {
-		top: 90px;
+		top: 100px;
 		bottom: 0px;
 	}
-	.mapcontainer {
-		/*position: relative;*/
-		/*overflow: scroll;*/
-	}
-
 	#widget {
-		/*background: red;*/
 		width: 100%;
 		top: 0;
 		left: 0;
